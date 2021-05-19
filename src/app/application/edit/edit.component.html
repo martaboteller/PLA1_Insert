@@ -30,7 +30,7 @@
       </div>
     </nav>
     <!-- TITLE -->
-    <form>
+    <form [formGroup]="editForm">
       <div
         class="form-group"
         style="
@@ -46,6 +46,7 @@
           id="name"
           placeholder="Extension name"
           style="font-size: 18px"
+          formControlName="extensionNameForm"
         />
       </div>
 

@@ -6,7 +6,8 @@ import { rankExtension } from '../interfaces';
   providedIn: 'root',
 })
 export class ExtensionsService {
-  private extensionsArray: rankExtension[] = [
+  //Default extensions
+  public extensionsArray: rankExtension[] = [
     {
       id: 1,
       extName: 'LIVE SASS COMPILER',
@@ -61,5 +62,28 @@ export class ExtensionsService {
 
   public getExtensionsById(id: number): rankExtension {
     return this.extensionsArray.filter((extension) => extension.id == +id)[0];
+  }
+
+  //Adds element to extensionArray
+  public addExtension(
+    id: number,
+    extName: string,
+    extAuthor: string,
+    extDescription: string,
+    extDownloads: number,
+    extRating: number,
+    extImg: string,
+    extEmail: string
+  ) {
+    this.extensionsArray.push({
+      id: id,
+      extName: extName,
+      extAuthor: extAuthor,
+      extDescription: extDescription,
+      extDownloads: extDownloads,
+      extRating: extRating,
+      extImg: extImg,
+      extEmail: extEmail,
+    });
   }
 }
