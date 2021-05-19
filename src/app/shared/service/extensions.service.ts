@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { getMaxListeners } from 'process';
 import { rankExtension } from '../interfaces';
 
 @Injectable({
@@ -15,6 +16,7 @@ export class ExtensionsService {
       extRating: 5,
       extDownloads: 1282606,
       extImg: 'live_sass_compiler.png',
+      extEmail: 'ritwick.dey@getMaxListeners.com',
     },
     {
       id: 2,
@@ -25,6 +27,7 @@ export class ExtensionsService {
       extRating: 5,
       extDownloads: 5153123,
       extImg: 'bracket_pair_colorizer.png',
+      extEmail: 'coen.rad51@hotmail.com',
     },
     {
       id: 3,
@@ -35,6 +38,7 @@ export class ExtensionsService {
       extRating: 4,
       extDownloads: 7810197,
       extImg: 'debugger_chrome.png',
+      extEmail: 'micro.soft@ms.com',
     },
     {
       id: 4,
@@ -45,6 +49,7 @@ export class ExtensionsService {
       extRating: 4,
       extDownloads: 12392694,
       extImg: 'prettier.png',
+      extEmail: 'prettier@prettier.com',
     },
   ];
 

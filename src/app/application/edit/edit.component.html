@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/dist/detail.js" type="module"></script>
+    <title>Detail page</title>
+  </head>
+  <body>
+    <!--Sidenav-->
+    <nav class="navbar navbar" style="background-color: #d3e5f6">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/assets/resources/app_icon_circle.png"
+            alt=""
+            width="40"
+            height="35"
+          />
+        </a>
+        <h1 style="text-align: left; color: steelblue">TOP VSC Extensions</h1>
+        <span class="navbar-text">
+          <h2>
+            <a href="list"
+              ><i class="bi bi-chevron-left" style="color: slategray"></i
+            ></a>
+          </h2>
+        </span>
+      </div>
+    </nav>
+    <!-- TITLE -->
+    <form>
+      <div
+        class="form-group"
+        style="
+          padding-left: 30%;
+          padding-right: 30%;
+          padding-top: 5%;
+          text-align: center;
+        "
+      >
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Extension name"
+          style="font-size: 18px"
+        />
+      </div>
+
+      <div
+        class="form-group"
+        style="
+          padding-left: 30%;
+          padding-right: 30%;
+          padding-top: 5%;
+          text-align: center;
+        "
+      >
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Email"
+          style="font-size: 18px"
+        />
+      </div>
+
+      <div class="img-container" style="text-align: center; padding: 2%">
+        <!--Image -->
+        <img
+          id="image"
+          style="
+            border-radius: 50%;
+            max-width: 25%;
+            max-height: 25%;
+            text-align: center;
+            align-content: center;
+          "
+          src="/assets/images/default_extImage.png"
+          alt="extension image"
+        />
+      </div>
+      <!--Description-->
+      <div class="form-group" style="padding-left: 6%; padding-right: 6%">
+        <textarea
+          type="textarea"
+          class="form-control"
+          id="description"
+          style="resize: none; margin: auto"
+          rows="5"
+        ></textarea>
+      </div>
+      <!-- Downloads & Rating -->
+      <div class="row">
+        <div class="col" style="padding-left: 6%; padding-top: 4%">
+          <div class="form-group" style="padding-left: 4%">
+            <label>Downloads:</label>
+            <input type="number" id="downloads" class="form-control" />
+          </div>
+        </div>
+        <div
+          class="col"
+          style="padding-left: 20%; padding-top: 4%; padding-right: 7%"
+        >
+          <div class="form-group">
+            <label>Rating:</label>
+            <input type="number" id="rating" class="form-control" />
+          </div>
+        </div>
+      </div>
+      <!--Save button-->
+      <div class="row">
+        <div
+          class="col"
+          style="padding-left: 40%; padding-top: 10%; padding-bottom: 10%"
+        >
+          <button
+            type="button"
+            id="editbutton"
+            class="btn btn-secondary btn-lg"
+            disabled
+          >
+            Edit
+          </button>
+        </div>
+        <div
+          class="col"
+          style="padding-top: 10%; padding-bottom: 10%; padding-right: 30%"
+        >
+          <button
+            type="button"
+            id="savebutton"
+            class="btn btn-secondary btn-lg"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!--Footer-->
+    <div
+      class="footer"
+      style="
+        background-color: #d3e5f6;
+        color: steelblue;
+        text-align: center;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        padding-top: 2%;
+        padding-bottom: 2%;
+      "
+    >
+      @Copyright: Marta Boteller 2021
+    </div>
+  </body>
+</html>

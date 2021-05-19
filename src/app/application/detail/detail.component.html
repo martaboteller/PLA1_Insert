@@ -40,7 +40,7 @@
       <div class="col">
         <!-- Author -->
         <div style="text-align: center; padding-bottom: 3%">
-          <p id="extAuthor">{{ selectedExtension.extAuthor }}</p>
+          <p id="extAuthor">{{ selectedExtension.extEmail }}</p>
         </div>
         <div class="img-container" style="text-align: center">
           <!--Image -->
@@ -57,17 +57,20 @@
             alt="extension image"
           />
         </div>
-        <div class="row pt-5 pl-4 pr-4 m-3">
+        <div
+          class="row pt-5 pl-4 pr-4 m-3"
+          style="padding-right: 4%; padding-left: 4%"
+        >
           <!--TextArea-->
           <textarea
             id="description"
             readonly="readonly"
             rows="5"
-            style="height: auto; width: 100%; text-align: justify; padding: 5%"
+            style="height: auto; width: 100%; text-align: justify"
             >{{ selectedExtension.extDescription }}</textarea
           >
         </div>
-        <div class="row pt-5 pl-4 pr-4 p-4" style="margin-bottom: 10%">
+        <div class="row p-5" style="margin-bottom: 10%">
           <!-- Downloads & Rating -->
           <div id="downloads" class="col-8">
             Downloads:
