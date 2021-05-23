@@ -54,18 +54,21 @@ export class EditComponent implements OnInit {
   //Else show errors
   saveForm() {
     if (this.editForm.valid) {
-      this.extensionsService.addExtension(
-        this.extensionsService.getNumberExtensions() + 1,
-        this.editForm.get('name').value,
-        this.editForm.get('author').value,
-        this.editForm.get('description').value,
-        this.editForm.get('downloads').value,
-        this.editForm.get('rating').value,
-        '../images/default_extImage.png',
-        this.editForm.get('email').value,
-        this.checkedFav
-      );
-      //Navigate back to list
+      const newExtension: rankExtension = {} as rankExtension;
+      newExtension.extName = this.editForm.get('name').value;
+      newExtension.extAuthor = this.editForm.get('author').value;
+      newExtension.extDescription = this.editForm.get('description').value;
+      newExtension.extDownloads = this.editForm.get('downloads').value;
+      newExtension.extRating = this.editForm.get('rating').value;
+      newExtension.extImg = '../images/default_extImage.png';
+      newExtension.extEmail = this.editForm.get('email').value;
+      newExtension.extFav = this.checkedFav;
+
+      /*this.extensionsService.addNewExtension(newExtension).subscribe(() => {
+        this.router.navigate(['/list']);
+      });*/
+
+      this.extensionsService.addNewExtension(newExtension);
       this.router.navigate(['/list']);
     } else {
       //Show errors

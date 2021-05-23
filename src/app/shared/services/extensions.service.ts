@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { rankExtension } from '../interfaces';
 
 @Injectable({
@@ -71,8 +72,27 @@ export class ExtensionsService {
     return this.extensionsArray.length;
   }
 
+  /*public addNewExtension(extension: rankExtension): Observable<any> {
+    const extensionObservable = new Observable((observer) => {
+      setTimeout(() => {
+        const lastId = this.extensionsArray.length;
+        extension.id = lastId + 1;
+        this.extensionsArray.push(extension);
+      }, 2000);
+    });
+    return extensionObservable;
+  }*/
+
+  public addNewExtension(extension: rankExtension): void {
+    setTimeout(() => {
+      const lastId = this.extensionsArray.length;
+      extension.id = lastId + 1;
+      this.extensionsArray.push(extension);
+    }, 2000);
+  }
+
   //Adds element to extensionArray
-  public addExtension(
+  /* public addExtension(
     id: number,
     extName: string,
     extAuthor: string,
@@ -94,5 +114,5 @@ export class ExtensionsService {
       extEmail: extEmail,
       extFav: extFav,
     });
-  }
+  }*/
 }
