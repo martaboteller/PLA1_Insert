@@ -27,7 +27,6 @@
             id="loginForm"
             name="loginForm"
             (ngSubmit)="doLogin()"
-            novalidate
             autocomplete="off"
           >
             <!--Validate if field empty-->
@@ -36,7 +35,6 @@
               [ngClass]="{ 'has-error': loginForm.get('username').errors }"
             >
               <label>User Name</label>
-
               <input
                 [class.is-invalid]="
                   loginForm.get('username').invalid &&

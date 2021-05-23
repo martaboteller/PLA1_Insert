@@ -7,4 +7,5 @@ export interface rankExtension {
   extDownloads: number;
   extImg: string;
   extEmail: string;
+  extFav: boolean;
 }

@@ -29,133 +29,210 @@
         </span>
       </div>
     </nav>
-    <!-- TITLE -->
+    <!--Extension title-->
     <form [formGroup]="editForm">
-      <div
-        class="form-group"
-        style="
-          padding-left: 30%;
-          padding-right: 30%;
-          padding-top: 5%;
-          text-align: center;
-        "
-      >
+      <div id="titlesection" class="form-group">
         <input
           type="text"
           class="form-control"
           id="name"
           placeholder="Extension name"
-          style="font-size: 18px"
-          formControlName="extensionNameForm"
+          formControlName="name"
+          [class.is-invalid]="
+            editForm.get('name').invalid &&
+            (editForm.get('name').touched || editForm.get('name').dirty)
+          "
         />
+        <div
+          *ngIf="
+            editForm.get('name').invalid &&
+            (editForm.get('name').touched || editForm.get('name').dirty)
+          "
+        >
+          <small
+            *ngIf="editForm.get('name').errors?.required"
+            class="text-danger"
+            >Extension name is required</small
+          >
+        </div>
       </div>
-
-      <div
-        class="form-group"
-        style="
-          padding-left: 30%;
-          padding-right: 30%;
-          padding-top: 5%;
-          text-align: center;
-        "
-      >
+      <!--Author-->
+      <div id="authorsection" class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="author"
+          placeholder="Author"
+          formControlName="author"
+          [class.is-invalid]="
+            editForm.get('author').invalid &&
+            (editForm.get('author').touched || editForm.get('author').dirty)
+          "
+        />
+        <div
+          *ngIf="
+            editForm.get('author').invalid &&
+            (editForm.get('author').touched || editForm.get('author').dirty)
+          "
+        >
+          <small
+            *ngIf="editForm.get('author').errors?.required"
+            class="text-danger"
+            >Extension author is required</small
+          >
+        </div>
+      </div>
+      <!--Email-->
+      <div id="emailsection" class="form-group">
         <input
           type="email"
           class="form-control"
           id="email"
           placeholder="Email"
-          style="font-size: 18px"
+          formControlName="email"
+          [class.is-invalid]="
+            editForm.get('email').invalid &&
+            (editForm.get('email').touched || editForm.get('email').dirty)
+          "
         />
+        <div
+          *ngIf="
+            editForm.get('email').invalid &&
+            (editForm.get('email').touched || editForm.get('email').dirty)
+          "
+        >
+          <small
+            *ngIf="editForm.get('email').errors?.required"
+            class="text-danger"
+            >Author email is required</small
+          >
+          <small *ngIf="editForm.get('email').errors?.email" class="text-danger"
+            >Please provide a valid email address</small
+          >
+        </div>
       </div>
-
-      <div class="img-container" style="text-align: center; padding: 2%">
-        <!--Image -->
+      <!--Image section-->
+      <div id="imagesection" imclass="img-container">
         <img
           id="image"
-          style="
-            border-radius: 50%;
-            max-width: 25%;
-            max-height: 25%;
-            text-align: center;
-            align-content: center;
-          "
           src="/assets/images/default_extImage.png"
           alt="extension image"
         />
       </div>
       <!--Description-->
-      <div class="form-group" style="padding-left: 6%; padding-right: 6%">
+      <div id="descriptionsection" class="form-group">
         <textarea
           type="textarea"
           class="form-control"
           id="description"
-          style="resize: none; margin: auto"
           rows="5"
+          formControlName="description"
+          [class.is-invalid]="
+            editForm.get('description').invalid &&
+            (editForm.get('description').touched ||
+              editForm.get('description').dirty)
+          "
         ></textarea>
+        <div
+          *ngIf="
+            editForm.get('description').invalid &&
+            (editForm.get('description').touched ||
+              editForm.get('description').dirty)
+          "
+        >
+          <small
+            *ngIf="editForm.get('description').errors?.required"
+            class="text-danger"
+            >Description is required</small
+          >
+        </div>
       </div>
-      <!-- Downloads & Rating -->
+      <!-- Downloads & Rating row-->
       <div class="row">
-        <div class="col" style="padding-left: 6%; padding-top: 4%">
-          <div class="form-group" style="padding-left: 4%">
+        <div id="downloadssection" class="col">
+          <div class="form-group">
             <label>Downloads:</label>
-            <input type="number" id="downloads" class="form-control" />
+            <input
+              type="number"
+              id="downloads"
+              class="form-control"
+              formControlName="downloads"
+              [class.is-invalid]="
+                editForm.get('downloads').invalid &&
+                (editForm.get('downloads').touched ||
+                  editForm.get('downloads').dirty)
+              "
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('downloads').invalid &&
+              (editForm.get('downloads').touched ||
+                editForm.get('downloads').dirty)
+            "
+          >
+            <small
+              *ngIf="editForm.get('downloads').errors?.required"
+              class="text-danger"
+              >Number of downloads is required</small
+            >
           </div>
         </div>
-        <div
-          class="col"
-          style="padding-left: 20%; padding-top: 4%; padding-right: 7%"
-        >
+        <div id="ratingsection" class="col">
           <div class="form-group">
             <label>Rating:</label>
-            <input type="number" id="rating" class="form-control" />
+            <input
+              type="number"
+              id="rating"
+              class="form-control"
+              formControlName="rating"
+              [class.is-invalid]="
+                editForm.get('rating').invalid &&
+                (editForm.get('rating').touched || editForm.get('rating').dirty)
+              "
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('rating').invalid &&
+              (editForm.get('rating').touched || editForm.get('rating').dirty)
+            "
+          >
+            <small
+              *ngIf="editForm.get('rating').errors?.required"
+              class="text-danger"
+              >Rating is required</small
+            >
           </div>
         </div>
       </div>
+      <!--Favorite check-->
+      <div id="favoritesection" class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="favorite"
+          formContolName="favorite"
+          (change)="onCheckboxChange($event)"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Favorite
+        </label>
+      </div>
       <!--Save button-->
-      <div class="row">
-        <div
-          class="col"
-          style="padding-left: 40%; padding-top: 10%; padding-bottom: 10%"
+      <div id="savesection" class="row">
+        <button
+          type="button"
+          id="savebutton"
+          class="btn btn-secondary btn-lg"
+          (click)="saveForm()"
         >
-          <button
-            type="button"
-            id="editbutton"
-            class="btn btn-secondary btn-lg"
-            disabled
-          >
-            Edit
-          </button>
-        </div>
-        <div
-          class="col"
-          style="padding-top: 10%; padding-bottom: 10%; padding-right: 30%"
-        >
-          <button
-            type="button"
-            id="savebutton"
-            class="btn btn-secondary btn-lg"
-          >
-            Save
-          </button>
-        </div>
+          Save
+        </button>
       </div>
     </form>
-
     <!--Footer-->
-    <div
-      class="footer"
-      style="
-        background-color: #d3e5f6;
-        color: steelblue;
-        text-align: center;
-        bottom: 0;
-        width: 100%;
-        left: 0;
-        padding-top: 2%;
-        padding-bottom: 2%;
-      "
-    >
-      @Copyright: Marta Boteller 2021
-    </div>
+    <div id="footersection" class="footer">@Copyright: Marta Boteller 2021</div>
   </body>
 </html>

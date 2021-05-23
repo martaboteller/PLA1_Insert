@@ -32,7 +32,7 @@
     <div class="container-fluid">
       <div style="text-align: right; padding: 3%">
         <h3>
-          <a href="edit/0"
+          <a href="edit/new"
             ><i class="bi bi-plus-square" style="color: slategray"></i
           ></a>
         </h3>
@@ -51,7 +51,9 @@
           </div>
           <!--Column with extension name/author-->
           <div class="col-sm-8 my-auto">
-            <p class="h3 mt-3">{{ extension.extName }}</p>
+            <p class="h3 mt-3" style="text-transform: uppercase">
+              {{ extension.extName }}
+            </p>
             <p class="h4-responsive" style="color: slategray">
               {{ extension.extAuthor }}
             </p>

@@ -1,4 +1,77 @@
-input[formControlName="extensionNameForm"] {
-  color: black;
-  background-color: white;
+#titlesection {
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: 5%;
+  text-align: center;
+}
+#name {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+#authorsection {
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: 2%;
+  text-align: center;
+}
+#author {
+  font-size: 18px;
+}
+#emailsection {
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: 2%;
+  text-align: center;
+}
+#email {
+  font-size: 18px;
+}
+#imagesection {
+  text-align: center;
+  padding: 2%;
+}
+#image {
+  border-radius: 50%;
+  max-width: 25%;
+  max-height: 25%;
+  text-align: center;
+  align-content: center;
+}
+#descriptionsection {
+  padding-left: 6%;
+  padding-right: 6%;
+}
+#description {
+  resize: none;
+  margin: auto;
+}
+#downloadssection {
+  padding-left: 7%;
+  padding-top: 4%;
+}
+#ratingsection {
+  padding-left: 20%;
+  padding-top: 4%;
+  padding-right: 7%;
+}
+#favoritesection {
+  padding-left: 10%;
+  padding-top: 2%;
+}
+#savesection {
+  padding-left: 45%;
+  padding-right: 45%;
+  padding-top: 5%;
+  padding-bottom: 8%;
+}
+#footersection {
+  background-color: #d3e5f6;
+  color: steelblue;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }

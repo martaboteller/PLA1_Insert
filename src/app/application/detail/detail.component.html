@@ -29,49 +29,34 @@
         </span>
       </div>
     </nav>
-    <!-- Title -->
-    <h3
-      id="extensionName"
-      style="padding-top: 5%; padding-bottom: 2%; text-align: center"
-    >
-      {{ selectedExtension.extName }}
-    </h3>
+    <!-- Title section-->
+    <h3 id="titlesection">{{ selectedExtension.extName }}</h3>
     <div id="detailExtension">
       <div class="col">
-        <!-- Author -->
-        <div style="text-align: center; padding-bottom: 3%">
+        <!-- Author section -->
+        <div id="authorsection">
+          <p id="extAuthor">{{ selectedExtension.extAuthor }}</p>
+        </div>
+        <!--Email section-->
+        <div id="emailsection">
           <p id="extAuthor">{{ selectedExtension.extEmail }}</p>
         </div>
-        <div class="img-container" style="text-align: center">
-          <!--Image -->
+        <!--Image section -->
+        <div id="imagesection" class="img-container">
           <img
             id="image"
-            style="
-              border-radius: 50%;
-              max-width: 25%;
-              max-height: 25%;
-              text-align: center;
-              align-content: center;
-            "
             src="/assets/images/{{ selectedExtension.extImg }}"
             alt="extension image"
           />
         </div>
-        <div
-          class="row pt-5 pl-4 pr-4 m-3"
-          style="padding-right: 4%; padding-left: 4%"
-        >
-          <!--TextArea-->
-          <textarea
-            id="description"
-            readonly="readonly"
-            rows="5"
-            style="height: auto; width: 100%; text-align: justify"
-            >{{ selectedExtension.extDescription }}</textarea
-          >
+        <!--Description section-->
+        <div id="descriptionsection" class="row pt-5 pl-4 pr-4 m-3">
+          <textarea id="description" readonly="readonly" rows="5">{{
+            selectedExtension.extDescription
+          }}</textarea>
         </div>
-        <div class="row p-5" style="margin-bottom: 10%">
-          <!-- Downloads & Rating -->
+        <!-- Downloads & Rating section-->
+        <div class="row p-5">
           <div id="downloads" class="col-8">
             Downloads:
             {{ selectedExtension.extDownloads }}
@@ -80,22 +65,23 @@
             Rating: {{ selectedExtension.extRating }}
           </div>
         </div>
+        <!--Favorites section-->
+        <div id="favoritesection" class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="favoriteChek"
+            formContolName="extensionFavForm"
+            [checked]="checkedFav"
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Favorite
+          </label>
+        </div>
       </div>
     </div>
-    <div
-      class="footer"
-      style="
-        background-color: #d3e5f6;
-        color: steelblue;
-        text-align: center;
-        bottom: 0;
-        width: 100%;
-        left: 0;
-        padding-top: 2%;
-        padding-bottom: 2%;
-      "
-    >
-      @Copyright: Marta Boteller 2021
-    </div>
+    <!--Footer section-->
+    <div id="footersection" class="footer">@Copyright: Marta Boteller 2021</div>
   </body>
 </html>

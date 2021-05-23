@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { rankExtension } from 'src/app/shared/interfaces';
-import { ExtensionsService } from 'src/app/shared/service/extensions.service';
+import { ExtensionsService } from 'src/app/shared/services/extensions.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,10 +12,10 @@ export class DetailComponent implements OnInit {
   //Variables
   selectedId: number;
   selectedExtension: rankExtension;
+  checkedFav: boolean = false;
+
   @Input() Idnumber: number;
 
-  //Initiate service on constructor
-  //Will be passing id at route
   constructor(
     private extensionsService: ExtensionsService,
     private route: ActivatedRoute
@@ -27,10 +27,12 @@ export class DetailComponent implements OnInit {
 
   showExtensionDetails() {
     //Get the extension information by its ID (on the route)
+    console.log('This is the Idnumber ' + this.Idnumber);
     this.selectedId = Number(this.route.snapshot.paramMap.get('id'));
     //console.log('I am in the details page, this is the ID  ' + this.selectedId);
     this.selectedExtension = this.extensionsService.getExtensionsById(
       this.selectedId
     );
+    this.checkedFav = this.selectedExtension.extFav;
   }
 }

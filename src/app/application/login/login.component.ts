@@ -35,7 +35,9 @@ export class LoginComponent implements OnInit {
   doLogin() {
     if (this.loginForm.valid) {
       this.router.navigate(['/list']);
-      //It has a claudator because it can carry params
+    } else {
+      this.loginForm.controls['username'].markAllAsTouched();
+      this.loginForm.controls['password'].markAsTouched();
     }
   }
 }
