@@ -72,47 +72,24 @@ export class ExtensionsService {
     return this.extensionsArray.length;
   }
 
-  /*public addNewExtension(extension: rankExtension): Observable<any> {
+  public addNewExtension(extension: rankExtension): Observable<any> {
     const extensionObservable = new Observable((observer) => {
       setTimeout(() => {
         const lastId = this.extensionsArray.length;
         extension.id = lastId + 1;
         this.extensionsArray.push(extension);
+        observer.next(true);
       }, 2000);
     });
     return extensionObservable;
-  }*/
+  }
 
+  /*
   public addNewExtension(extension: rankExtension): void {
     setTimeout(() => {
       const lastId = this.extensionsArray.length;
       extension.id = lastId + 1;
       this.extensionsArray.push(extension);
     }, 2000);
-  }
-
-  //Adds element to extensionArray
-  /* public addExtension(
-    id: number,
-    extName: string,
-    extAuthor: string,
-    extDescription: string,
-    extDownloads: number,
-    extRating: number,
-    extImg: string,
-    extEmail: string,
-    extFav: boolean
-  ) {
-    this.extensionsArray.push({
-      id: id,
-      extName: extName,
-      extAuthor: extAuthor,
-      extDescription: extDescription,
-      extDownloads: extDownloads,
-      extRating: extRating,
-      extImg: extImg,
-      extEmail: extEmail,
-      extFav: extFav,
-    });
   }*/
 }

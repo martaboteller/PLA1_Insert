@@ -64,12 +64,12 @@ export class EditComponent implements OnInit {
       newExtension.extEmail = this.editForm.get('email').value;
       newExtension.extFav = this.checkedFav;
 
-      /*this.extensionsService.addNewExtension(newExtension).subscribe(() => {
+      this.extensionsService.addNewExtension(newExtension).subscribe(() => {
         this.router.navigate(['/list']);
-      });*/
+      });
 
-      this.extensionsService.addNewExtension(newExtension);
-      this.router.navigate(['/list']);
+      /*this.extensionsService.addNewExtension(newExtension);
+      this.router.navigate(['/list']);*/
     } else {
       //Show errors
       this.editForm.controls['name'].markAsTouched();
