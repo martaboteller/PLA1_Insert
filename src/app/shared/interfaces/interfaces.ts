@@ -9,3 +9,11 @@ export interface rankExtension {
   extEmail: string;
   extFav: boolean;
 }
+
+export interface IUser {
+  idUser: number;
+  name: string;
+  surname: string;
+  email: string;
+  admin: boolean;
+}
