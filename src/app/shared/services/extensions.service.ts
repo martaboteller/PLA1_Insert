@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { rankExtension } from '../interfaces';
+import { rankExtension } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -83,13 +83,4 @@ export class ExtensionsService {
     });
     return extensionObservable;
   }
-
-  /*
-  public addNewExtension(extension: rankExtension): void {
-    setTimeout(() => {
-      const lastId = this.extensionsArray.length;
-      extension.id = lastId + 1;
-      this.extensionsArray.push(extension);
-    }, 2000);
-  }*/
 }

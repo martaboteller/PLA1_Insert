@@ -32,29 +32,34 @@
             <!--Validate if field empty-->
             <div
               class="form-group"
-              [ngClass]="{ 'has-error': loginForm.get('username').errors }"
+              [ngClass]="{ 'has-error': loginForm.get('email').errors }"
             >
-              <label>User Name</label>
+              <label>Email</label>
               <input
                 [class.is-invalid]="
-                  loginForm.get('username').invalid &&
-                  loginForm.get('username').touched
+                  loginForm.get('email').invalid &&
+                  loginForm.get('email').touched
                 "
                 type="text"
                 class="form-control"
-                formControlName="username"
+                formControlName="email"
               />
               <div
                 *ngIf="
-                  (loginForm.get('username').invalid &&
-                    loginForm.get('username').touched) ||
-                  loginForm.get('username').dirty
+                  (loginForm.get('email').invalid &&
+                    loginForm.get('email').touched) ||
+                  loginForm.get('email').dirty
                 "
               >
                 <small
-                  *ngIf="loginForm.get('username').errors?.required"
+                  *ngIf="loginForm.get('email').errors?.required"
                   class="text-danger"
-                  >Username is required</small
+                  >Email is required</small
+                >
+                <small
+                  *ngIf="loginForm.get('email').errors?.email"
+                  class="text-danger"
+                  >Please provide a valid email address</small
                 >
               </div>
             </div>
@@ -90,6 +95,16 @@
               </div>
             </div>
             <button type="submit" class="btn btn-black mt-3">Login</button>
+            <!--Show error if login fails-->
+            <div class="loginFail">
+              <p
+                id="loginFail"
+                class="text-danger"
+                style="padding-top: 15%; text-align: center; visibility: hidden"
+              >
+                This user does not exist.
+              </p>
+            </div>
           </form>
         </div>
       </div>

@@ -6,6 +6,8 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { UsersService } from 'src/app/shared/services/users.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,12 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
 
   //Call router and FormBuilder module
-  constructor(private router: Router, private fb: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private userService: UsersService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -26,18 +33,37 @@ export class LoginComponent implements OnInit {
   //Function to create the form
   buildForm() {
     this.loginForm = new FormGroup({
-      username: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required]),
     });
   }
 
   //Provide access
-  doLogin() {
+  /* doLogin() {
     if (this.loginForm.valid) {
       this.router.navigate(['/list']);
     } else {
       this.loginForm.controls['username'].markAllAsTouched();
       this.loginForm.controls['password'].markAsTouched();
+    }
+  } */
+
+  doLogin() {
+    if (this.loginForm.valid) {
+      //Validate email at auth service
+      const email = this.loginForm.get('email').value;
+      this.authService
+        .login(email)
+        .then(() => {
+          console.log('Access accepted');
+          //Store loggedUser to localstorage
+          this.authService.setSession(this.userService.getUserByEmail(email));
+          this.router.navigate(['/list']);
+        })
+        .catch(() => {
+          console.log('Access denied');
+          document.getElementById('loginFail').style.visibility = 'visible';
+        });
     }
   }
 }

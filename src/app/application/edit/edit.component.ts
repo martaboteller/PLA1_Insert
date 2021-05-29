@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { rankExtension } from 'src/app/shared/interfaces';
+import { rankExtension } from 'src/app/shared/interfaces/interfaces';
 import { ExtensionsService } from 'src/app/shared/services/extensions.service';
 
 @Component({

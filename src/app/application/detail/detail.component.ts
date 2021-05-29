@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { rankExtension } from 'src/app/shared/interfaces';
+import { rankExtension } from 'src/app/shared/interfaces/interfaces';
 import { ExtensionsService } from 'src/app/shared/services/extensions.service';
 import { ActivatedRoute } from '@angular/router';
 

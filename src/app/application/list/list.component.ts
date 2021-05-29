@@ -1,7 +1,8 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { rankExtension } from 'src/app/shared/interfaces';
+import { rankExtension } from 'src/app/shared/interfaces/interfaces';
 import { ExtensionsService } from 'src/app/shared/services/extensions.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-list',
@@ -18,7 +19,8 @@ export class ListComponent implements OnInit {
   //Call service when initialized
   constructor(
     private router: Router,
-    private extensionsService: ExtensionsService
+    private extensionsService: ExtensionsService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -30,8 +32,24 @@ export class ListComponent implements OnInit {
     this.extensions = this.extensionsService.getrankedExtensions();
   }
 
-  //Trying new routes
+  //Access detail component
   goToDetails(idSelected: number) {
     this.router.navigate(['/detail/', idSelected]);
+  }
+
+  logOut() {
+    if (this.authService.hasSession()) {
+      //Session exists
+      const goodByeName = this.authService.getUserSession().name;
+      //Say Goodbye
+      console.log('Goodbye ' + goodByeName);
+      //Delete session info
+      this.authService.closeSession();
+      //Navigate to login
+      this.router.navigate(['/login']);
+    } else {
+      console.log("Can't log out");
+      this.router.navigate(['/login']);
+    }
   }
 }
