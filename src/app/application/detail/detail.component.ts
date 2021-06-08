@@ -30,9 +30,9 @@ export class DetailComponent implements OnInit {
     console.log('This is the Idnumber ' + this.Idnumber);
     this.selectedId = Number(this.route.snapshot.paramMap.get('id'));
     //console.log('I am in the details page, this is the ID  ' + this.selectedId);
-    this.selectedExtension = this.extensionsService.getExtensionsById(
+    /*this.selectedExtension = this.extensionsService.getExtensionsById(
       this.selectedId
-    );
+    );*/
     this.checkedFav = this.selectedExtension.extFav;
   }
 }

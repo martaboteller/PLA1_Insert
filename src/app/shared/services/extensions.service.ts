@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { rankExtension } from '../interfaces/interfaces';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExtensionsService {
   //Default extensions
-  public extensionsArray: rankExtension[] = [
+  /*public extensionsArray: rankExtension[] = [
     {
       id: 1,
       extName: 'LIVE SASS COMPILER',
@@ -56,15 +57,19 @@ export class ExtensionsService {
       extEmail: 'prettier@prettier.com',
       extFav: false,
     },
-  ];
+  ];*/
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
-  public getrankedExtensions() {
+  /*public getrankedExtensions() {
     return this.extensionsArray;
+  }*/
+
+  public getrankedExtensions(): Observable<Object> {
+    return this.httpClient.get('http://demo1280084.mockable.io/rankExtension');
   }
 
-  public getExtensionsById(id: number): rankExtension {
+  /*public getExtensionsById(id: number): rankExtension {
     return this.extensionsArray.filter((extension) => extension.id == +id)[0];
   }
 
@@ -82,5 +87,5 @@ export class ExtensionsService {
       }, 2000);
     });
     return extensionObservable;
-  }
+  }*/
 }

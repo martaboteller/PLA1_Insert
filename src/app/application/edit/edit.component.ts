@@ -54,7 +54,7 @@ export class EditComponent implements OnInit {
   //Else show errors
   saveForm() {
     if (this.editForm.valid) {
-      const newExtension: rankExtension = {} as rankExtension;
+      /*   const newExtension: rankExtension = {} as rankExtension;
       newExtension.extName = this.editForm.get('name').value;
       newExtension.extAuthor = this.editForm.get('author').value;
       newExtension.extDescription = this.editForm.get('description').value;
@@ -66,8 +66,7 @@ export class EditComponent implements OnInit {
 
       this.extensionsService.addNewExtension(newExtension).subscribe(() => {
         this.router.navigate(['/list']);
-      });
-
+      });*/
       /*this.extensionsService.addNewExtension(newExtension);
       this.router.navigate(['/list']);*/
     } else {

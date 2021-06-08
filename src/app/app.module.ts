@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,8 +11,19 @@ import { ListComponent } from './application/list/list.component';
 import { EditComponent } from './application/edit/edit.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DetailComponent, ListComponent, EditComponent],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    DetailComponent,
+    ListComponent,
+    EditComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

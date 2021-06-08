@@ -29,7 +29,15 @@ export class ListComponent implements OnInit {
 
   //Get the complete list of extensions
   loadData() {
-    this.extensions = this.extensionsService.getrankedExtensions();
+    //this.extensions = this.extensionsService.getrankedExtensions();
+    this.extensionsService.getrankedExtensions().subscribe(
+      (list: rankExtension[]) => {
+        this.extensions = list;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   //Access detail component
